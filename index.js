@@ -33,7 +33,7 @@ class Deck {
             this.deck[counter] = this.deck[i]
             this.deck[i] = temp
         }
-        return this.deck;
+        return this.deck
     }
 
     deal() {
@@ -46,8 +46,10 @@ class Deck {
 
     dealMultiple(players) {
         let noOfCards = this.deck.length
-        let cardsPerPlayer = noOfCards / players
-
+        // console.log(noOfCards)
+        //Need to round down cardsperPlayer as some number of players can result in decimals and giving undefined
+        let cardsPerPlayer = Math.floor(noOfCards / players)
+        // console.log(cardsPerPlayer)
 
         for (let i = 0; i < players; i++) {
             let hand = []
@@ -62,7 +64,7 @@ class Deck {
             // console.log(` ${hand[0].value} of ${hand[0].suit} `)
 
         }
-        return this.allPlayers[0]
+        return this.allPlayers
     }
 
     showHands() {
@@ -86,10 +88,10 @@ let deck = new Deck()
 deck.createDeck(suits, values)
 deck.shuffle()
 // console.log(deck.shuffle())
-deck.deal()
+// deck.deal()
 // console.log(deck.deal())
-// console.log(deck.dealMultiple(2))
-deck.dealMultiple(2)
+// console.log(deck.dealMultiple(52))
+deck.dealMultiple(52)
 deck.showHands()
 
 
