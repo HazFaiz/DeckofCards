@@ -1,6 +1,29 @@
 var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 var suits = ["Diamonds", "Hearts", "Spades", "Clubs"];
 
+const inquirer = require('inquirer')
+
+
+var questions = [{
+    type: 'number',
+    name: 'name',
+    message: "Please the number of players",
+    validate: function (name) {
+        var valid = Number.isInteger(name);
+        return valid || `Input value does
+not exist or value is invalid`
+    },
+}]
+
+function promptUser() {
+    inquirer.prompt(questions)
+        .then(answers => {
+            console.log(`You entered ${answers['name']}!`)
+        })
+        .catch(error => console.log(`Please enter a number`))
+}
+
+
 
 class Card {
     constructor(suit, value) {
@@ -99,15 +122,15 @@ class Deck {
 
 let deck = new Deck()
 // console.log(deck.createDeck(suits, values))
-deck.createDeck(suits, values)
-deck.shuffle()
+// deck.createDeck(suits, values)
+// deck.shuffle()
 // console.log(deck.shuffle())
 // deck.deal()
 // console.log(deck.deal())
 // console.log(deck.dealMultiple(54))
-deck.dealMultiple(20)
-deck.showHands()
-
+// deck.dealMultiple(20)
+// deck.showHands()
+promptUser();
 
 
 // let noOfCards = this.deck.length
@@ -118,3 +141,15 @@ deck.showHands()
 //     hand.push(this.deck.pop())
 // }
 // return hand.length
+
+
+
+// if (isNaN(parseInt(name))) {
+//     return 'Please enter a valid phone number';
+// }
+
+// return true;
+
+//wrap everything up in a function
+
+//Note : inquirerjs doesnt clear wrong input. press up to clear input and enter again.
