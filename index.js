@@ -10,8 +10,13 @@ var questions = [{
     message: "Please the number of players",
     validate: function (name) {
         var valid = Number.isInteger(name);
-        return valid || `Input value does
-not exist or value is invalid`
+
+        if (name < 0) {
+            return `Please enter a number higher than zero`
+        } else if (!valid) {
+            return `Input value does not exist or value is invalid`
+        }
+        return valid
     },
 }]
 
