@@ -6,7 +6,7 @@ const inquirer = require('inquirer')
 
 function startProgram() {
     // **Initiate values to create cards
-    var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+    var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K"];
     var suits = ["Diamonds", "Hearts", "Spades", "Clubs"];
 
     // **Start inquirer to begin program
